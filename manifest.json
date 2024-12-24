@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Twitch Raid Player Pauser",
+    "version": "1.1",
+    "description": "Automatically pauses Twitch player if accessed via a raid redirect.",
+    "icons": {
+      "16": "icon16.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.twitch.tv/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "twitchraidpauser@dsmaster-addons"
+        }
+    }
+    
+  }
+  
