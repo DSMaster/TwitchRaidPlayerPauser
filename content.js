@@ -1,8 +1,8 @@
 /*
 DSMaster
 Twitch Raid Player Pauser - content.js
-12/24/24
-V1.1
+2/3/26
+V1.2
 */
 
 (function () {
@@ -14,7 +14,7 @@ V1.1
             if (mutation.type === 'attributes') {
                 if (mutation.attributeName === 'src') { //if the src= attribute changed in a <video> element...
                     const collection = document.getElementsByClassName("player-ad-notice"); //check if the ads are being played (so don't pause)
-                    if (collection[0].clientHeight === 30) { //just had to find something that changed to hook into for check
+                    if (collection[0] !== undefined && collection[0].clientHeight === 30) { //just had to find something that changed to hook into for check
                         console.log("[Twitch Raid Player Pauser] Ads playing. Not pausing.")
                     } else if (new URL(window.location.href).searchParams.get("referrer") === "raid") { //otherwise, if src changed (like in a raid) and the link at this time has referrer=raid...
                         targetNode.pause(); //actual pause of the video
